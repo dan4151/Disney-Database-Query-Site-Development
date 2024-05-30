@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <a href="http://127.0.0.1:8000/">Home Page</a> <br>
+    <a href="http://127.0.0.1:8000/tables">Query results</a> <br>
+    <a href="http://127.0.0.1:8000/add_movie/">Add movie to database</a>
+<h1>Add Content</h1>
+<form method="POST">
+    {% csrf_token %}
+    Movie title: <textarea name="movietitle" maxlength="50" rows="1" cols="50"></textarea><br>
+    <label for="start">Start date:</label>
+    <input type="date" id="start" name="date"
+       value="2023-01-01"
+       min="1800" max="2023"> <br>
+     <label>Genre of movie </label>
+    <select id="genre" name="genre" required>
+        <option value="">--Please choose an option--</option>
+        <option value="Action">Action</option>
+        <option value="Adventure">Adventure</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+    </select> <br>
+
+    <label>Rating of movie </label>
+    <select id="rating" name="rating" required>
+        <option value="">--Please choose a option--</option>
+        <option value="G">G</option>
+        <option value="P">P</option>
+        <option value="PG">PG</option>
+        <option value="PG-13">PG-13</option>
+        <option value="R">R</option>
+        <option value="NOT RATED">NOT RATED</option>
+    </select> <br>
+    gross: <input name="gross" type="number" min="0" max="1000000000" ></input><br>
+
+
+    <input type="submit">
+</form>
+</html>

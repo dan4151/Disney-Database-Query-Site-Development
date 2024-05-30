@@ -1,0 +1,49 @@
+<a href="http://127.0.0.1:8000/">Home Page</a> <br>
+<a href="http://127.0.0.1:8000/tables">Query results</a> <br>
+<a href="http://127.0.0.1:8000/add_movie/">Add movie to database</a>
+<h2>Genre information</h2>
+<table border="1" width="40%">
+<th>genre</th>
+<th>topGross</th>
+<th>longestName</th>
+<th>num_years</th>
+{% for x in sql_res1 %}
+<tr>
+<td>{{ x.genre }} </td>
+<td>{{ x.topGross}} </td>
+<td>{{ x.longestName}} </td>
+<td>{{ x.num_years}} </td>
+</tr>
+{% endfor %}
+</table>
+<br>
+<br>
+<h2>Actors that acted in more than:</h2>
+<form method="POST">
+    {% csrf_token %}
+     <input name="than" type = "number" min = "0"></input> <h2>movies</h2>
+    <input type="submit">
+</form>
+<table border="1" width="40%">
+<th>actor</th>
+<th>oldestMovie</th>
+{% for x in sql_res2 %}
+<tr>
+<td>{{ x.actor }} </td>
+<td>{{ x.oldestMovie}} </td>
+</tr>
+{% endfor %}
+</table>
+<br>
+<br>
+<h2>Movies with most only child actors</h2>
+<table border="1" width="40%">
+<th>actor</th>
+<th>number of only child actors</th>
+{% for x in sql_res3 %}
+<tr>
+<td>{{ x.Movie }} </td>
+<td>{{ x.Number_of_actors}} </td>
+</tr>
+{% endfor %}
+</table>
